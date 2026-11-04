@@ -1,0 +1,59 @@
+{
+  "brand": "Teamway",
+  "nav": {
+    "links": [
+      { "label": "Companies", "href": "#companies" },
+      { "label": "Members", "href": "#members" },
+      { "label": "Society", "href": "#society" },
+      { "label": "About", "href": "#about" },
+      { "label": "Login", "href": "#login" }
+    ],
+    "cta": "Hire talent"
+  },
+  "hero": {
+    "title": ["Build your", "dream team", "today."],
+    "subtitle": "Unlock success with our handpicked dream team of experts. Hire now for unparalleled results.",
+    "cta": "Hiring? Book a call",
+    "extraCount": "+723"
+  },
+  "members": {
+    "mike": {
+      "name": "Mike",
+      "role": "Frontend Dev.",
+      "image": "/assets/mike.jpg"
+    },
+    "asger": {
+      "name": "Asger",
+      "role": "UI/UX Designer",
+      "image": "/assets/asger.jpg"
+    },
+    "latisha": {
+      "name": "Latisha",
+      "role": "Mobile Dev.",
+      "image": "/assets/latisha.jpg"
+    }
+  },
+  "cards": {
+    "pool": {
+      "title": "Remote Talent\nPool",
+      "body": "Pre-vetted remote developers, designers, and product managers with world-class technical and communication skills."
+    },
+    "quick": {
+      "title": "Quick\nand adaptable",
+      "body": "Hire within a mere 72 hours. Easily adjust your team size from month to month as required."
+    },
+    "fees": {
+      "body": "Rest assured, there are no crazy fees or legal hassle to worry about."
+    }
+  },
+  "trusted": "Join 150+ companies trusting Teamway for their remote engineering needs.",
+  "logos": [
+    { "name": "&Open", "variant": "open" },
+    { "name": "unisport", "variant": "unisport" },
+    { "name": "Aller", "variant": "aller" },
+    { "name": "verisure", "variant": "verisure" },
+    { "name": "Layerise", "variant": "layerise" },
+    { "name": "GamerPay", "variant": "gamerpay" },
+    { "name": "BETTER COLLECTIVE", "variant": "better" }
+  ]
+}

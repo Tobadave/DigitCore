@@ -1,17 +1,18 @@
-import { Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Navbar from "./comp/Navbar";
+import { Hero, LogoSection } from "./comp/Components";
 
-const App = () => {
+const Landing = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<h1>404 - Page not found</h1>} />
-    </Routes>
+    <div className="min-h-screen p-2 sm:p-3 lg:p-4">
+      <div className="mx-auto max-w-[1440px] overflow-hidden rounded-[18px] bg-[#faf9f7]">
+        <div className="px-5 pt-6 sm:px-8 sm:pt-7 lg:px-10">
+          <Navbar />
+          <Hero />
+        </div>
+        <LogoSection />
+      </div>
+    </div>
   );
 };
 
-export default App;
+export default Landing;
