@@ -76,7 +76,6 @@
       "description": "As a small, close-knit team, we have worked together for years, developing a deep understanding of each other's strengths and fostering strong collaboration."
     }
   ],
-
   "footer": {
     "tagline": "Building digital products that deliver.",
     "nav": [
@@ -138,31 +137,38 @@
     "backToTop": "Back to top",
     "rights": "All rights reserved"
   },
-
-  "workingProcess": {
-    "title": "Working Process",
-    "intro": "Let us provide you with a detailed overview of our comprehensive development process, which we adhere to consistently across all our projects.",
-    "cta": { "label": "Explore Approach", "href": "#approach" },
-    "steps": [
+  "services": {
+    "label": "Services",
+    "items": [
       {
-        "number": "1",
-        "title": "Discovery and goals",
-        "description": "We start by understanding your business, your users, and the outcomes you need, so every decision that follows is grounded in real priorities."
+        "id": "custom-service-development",
+        "title": ["Custom Service", "Development"],
+        "description": "Tailored software built around your unique business needs."
       },
       {
-        "number": "2",
-        "title": "Design and prototyping",
-        "description": "We shape flows and interfaces into testable prototypes, refining them with feedback before a single line of production code is written."
+        "id": "api-backend",
+        "title": ["API Development", "& Backend"],
+        "description": "Secure, scalable APIs and robust backend architecture."
       },
       {
-        "number": "3",
-        "title": "Ready specs, time, and cost",
-        "description": "Delivering detailed and precise specifications, along with comprehensive timeframes and cost estimates, is essential for fostering transparency and predictability in any project."
+        "id": "seo-management",
+        "title": ["SEO", "Management"],
+        "description": "Technical SEO and strategy that grow your organic reach."
       },
       {
-        "number": "4",
-        "title": "Build, test, and launch",
-        "description": "We develop in short iterations, test continuously, and launch with a clear plan for monitoring, support, and future growth."
+        "id": "product-design-analysis",
+        "title": ["Product Design", "& Analysis"],
+        "description": "User research and design that shape better products."
+      },
+      {
+        "id": "project-handling",
+        "title": ["Projects Handling", "& Documentation"],
+        "description": "Clear planning, delivery tracking and thorough documentation."
+      },
+      {
+        "id": "full-stack",
+        "title": ["Full-Stack", "Development"],
+        "description": "Modern frontend and scalable backend systems, end to end."
       }
     ]
   }

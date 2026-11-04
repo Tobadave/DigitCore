@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import data from "../constants.json";
 import Timeline from "../comp/Timeline";
 import Footer from "../comp/Footer";
-import Section from "../comp/Section";
+import Service from "../comp/Service";
+
+// import Section from "../comp/Section";
 
 function Badge({ type, label }) {
   if (type === "upwork")
@@ -84,7 +86,7 @@ export default function Hero() {
         {/* Principles timeline */}
         <Timeline />
       </section>
-      <Section />
+      <Service />
       <Footer />
     </>
   );
