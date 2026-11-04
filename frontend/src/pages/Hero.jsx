@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import data from "../constants.json";
 import Timeline from "../comp/Timeline";
+import Footer from "../comp/Footer";
+import Section from "../comp/Section";
 
 function Badge({ type, label }) {
   if (type === "upwork")
@@ -65,21 +67,25 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="px-5 pt-36 md:px-8 md:pt-44 lg:px-[6%] xl:pt-60">
-      {/* Heading + badges */}
-      <div className="relative">
-        <h1 className="max-w-[9.6em] text-[2.6rem] font-normal leading-[1.14] tracking-[-0.02em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-          {hero.title}
-        </h1>
-        <div className="mt-10 flex items-center gap-5 lg:absolute lg:right-[-1%] lg:top-6 lg:mt-0 lg:flex-col lg:gap-4">
-          {badges.map((b, i) => (
-            <Badge key={i} {...b} />
-          ))}
+    <>
+      <section className="px-5 pt-36 md:px-8 md:pt-44 lg:px-[6%] xl:pt-60">
+        {/* Heading + badges */}
+        <div className="relative">
+          <h1 className="max-w-[9.6em] text-[2.6rem] font-normal leading-[1.14] tracking-[-0.02em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+            {hero.title}
+          </h1>
+          <div className="mt-10 flex items-center gap-5 lg:absolute lg:right-[-1%] lg:top-6 lg:mt-0 lg:flex-col lg:gap-4">
+            {badges.map((b, i) => (
+              <Badge key={i} {...b} />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Principles timeline */}
-      <Timeline />
-    </section>
+        {/* Principles timeline */}
+        <Timeline />
+      </section>
+      <Section />
+      <Footer />
+    </>
   );
 }

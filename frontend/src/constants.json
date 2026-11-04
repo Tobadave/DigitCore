@@ -1,25 +1,58 @@
 {
-  "brand": { "logo": "DigitCore", "logoImg": "/logo.png" },
+  "brand": {
+    "logo": "DigitCore",
+    "logoImg": "/logo.png"
+  },
   "nav": {
-    "cta": { "label": "Book a meeting", "href": "#contact" },
+    "cta": {
+      "label": "Book a meeting",
+      "href": "#contact"
+    },
     "menuLabel": "Menu",
     "closeLabel": "Close",
     "links": [
-      { "label": "Home", "href": "#" },
-      { "label": "Work", "href": "#work" },
-      { "label": "Services", "href": "#services" },
-      { "label": "About", "href": "#about" },
-      { "label": "Contact", "href": "#contact" }
+      {
+        "label": "Home",
+        "href": "#"
+      },
+      {
+        "label": "Work",
+        "href": "#work"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ]
   },
   "hero": {
     "title": "Creating excellence through collaboration and innovation"
   },
   "badges": [
-    { "type": "upwork", "label": "Top Rated Plus" },
-    { "type": "clutch", "label": "Clutch top developers" },
-    { "type": "award", "label": "Award" },
-    { "type": "clutch", "label": "Clutch top designers" }
+    {
+      "type": "upwork",
+      "label": "Top Rated Plus"
+    },
+    {
+      "type": "clutch",
+      "label": "Clutch top developers"
+    },
+    {
+      "type": "award",
+      "label": "Award"
+    },
+    {
+      "type": "clutch",
+      "label": "Clutch top designers"
+    }
   ],
   "principles": [
     {
@@ -42,5 +75,95 @@
       "title": "Collaboration",
       "description": "As a small, close-knit team, we have worked together for years, developing a deep understanding of each other's strengths and fostering strong collaboration."
     }
-  ]
+  ],
+
+  "footer": {
+    "tagline": "Building digital products that deliver.",
+    "nav": [
+      {
+        "label": "Process",
+        "href": "#process"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Showcase",
+        "href": "#work"
+      },
+      {
+        "label": "Pricing",
+        "href": "#pricing"
+      }
+    ],
+    "socials": [
+      {
+        "label": "X",
+        "href": "https://x.com"
+      },
+      {
+        "label": "Dribbble",
+        "href": "https://dribbble.com"
+      },
+      {
+        "label": "Pinterest",
+        "href": "https://pinterest.com"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Terms & Conditions",
+        "href": "#terms"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "#privacy"
+      },
+      {
+        "label": "Cookie Policy",
+        "href": "#cookies"
+      }
+    ],
+    "newsletter": {
+      "titleSuffix": "in your mailbox",
+      "placeholder": "name@example.com",
+      "success": "Thanks, you're subscribed."
+    },
+    "email": "hello@digitcore.tech",
+    "backToTop": "Back to top",
+    "rights": "All rights reserved"
+  },
+
+  "workingProcess": {
+    "title": "Working Process",
+    "intro": "Let us provide you with a detailed overview of our comprehensive development process, which we adhere to consistently across all our projects.",
+    "cta": { "label": "Explore Approach", "href": "#approach" },
+    "steps": [
+      {
+        "number": "1",
+        "title": "Discovery and goals",
+        "description": "We start by understanding your business, your users, and the outcomes you need, so every decision that follows is grounded in real priorities."
+      },
+      {
+        "number": "2",
+        "title": "Design and prototyping",
+        "description": "We shape flows and interfaces into testable prototypes, refining them with feedback before a single line of production code is written."
+      },
+      {
+        "number": "3",
+        "title": "Ready specs, time, and cost",
+        "description": "Delivering detailed and precise specifications, along with comprehensive timeframes and cost estimates, is essential for fostering transparency and predictability in any project."
+      },
+      {
+        "number": "4",
+        "title": "Build, test, and launch",
+        "description": "We develop in short iterations, test continuously, and launch with a clear plan for monitoring, support, and future growth."
+      }
+    ]
+  }
 }
