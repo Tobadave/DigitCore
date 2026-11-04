@@ -1,110 +1,118 @@
-import { useState } from "react";
-import content from "../content.json";
+import { useEffect, useRef, useState } from "react";
+import data from "../constants.json";
 
-function LogoMark() {
-  return (
-    <svg
-      viewBox="0 0 50 46"
-      className="h-7 w-7.5 shrink-0 xl:h-[4.6rem] xl:w-20"
-      fill="#1d2230"
-      stroke="#1d2230"
-      strokeWidth="3"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M25 3 46 14 25 25 4 14Z" />
-      <path d="M4 19 23 29V43L4 33Z" />
-      <path d="M46 19 27 29V43L46 33Z" />
-    </svg>
-  );
-}
+const ArrowIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="size-4"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M7 17 17 7M8 7h9v9" />
+  </svg>
+);
+
+const GridIcon = () => (
+  <svg
+    viewBox="0 0 16 16"
+    className="size-4"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <circle cx="5" cy="5" r="2" />
+    <circle cx="11" cy="5" r="2" />
+    <circle cx="5" cy="11" r="2" />
+    <circle cx="11" cy="11" r="2" />
+  </svg>
+);
 
 export default function Navbar() {
+  const { brand, nav } = data;
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
-  const { links, cta } = content.nav;
+  const lastY = useRef(0);
+
+  // Scroll animation: shrink + blur after 30px, hide on scroll down, reveal on scroll up
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 30);
+      setHidden(y > lastY.current && y > 120);
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => (document.body.style.overflow = "");
+  }, [open]);
+
+  const compact = scrolled && !open;
 
   return (
-    <header className="relative z-30 mx-auto w-full max-w-[1741px] px-5 sm:px-8 xl:px-[3.2rem]">
-      <nav className="flex h-19 items-center justify-between gap-4 xl:h-40">
-        <a
-          href="/"
-          aria-label={content.brand}
-          className="flex min-w-0 items-center gap-2 justify-self-start xl:gap-[1.3rem]"
-        >
-          <LogoMark />
-          <span className="whitespace-nowrap text-[24px] font-semibold leading-none tracking-tight xl:text-[3.5rem]">
-            {content.brand}
-          </span>
-        </a>
-
-        <ul className="hidden items-center justify-center gap-7 lg:flex xl:gap-[4.2rem]">
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="whitespace-nowrap text-[15px] transition-opacity hover:opacity-60 xl:text-[1.8rem]"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="#hire"
-          className="hidden h-11.5 items-center justify-center rounded-full bg-[#1d2230] px-7 text-[15px] font-medium text-white transition-colors hover:bg-black lg:flex xl:h-[4.6rem] xl:min-w-[14.8rem] xl:text-[1.7rem]"
-        >
-          {cta}
-        </a>
-
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="grid h-11 w-11 place-items-center rounded-full border border-[#1d2230]/20 lg:hidden"
-        >
-          <svg
-            viewBox="0 0 20 14"
-            className="h-3.5 w-5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          >
-            {open ? (
-              <path d="M3 1l14 12M17 1 3 13" />
-            ) : (
-              <path d="M1 2h18M1 7h18M1 12h18" />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {open && (
-        <div className="absolute left-5 right-5 top-full rounded-b-2xl border-t border-[#1d2230]/10 bg-[#faf9f7] px-5 pb-6 pt-2 shadow-lg sm:left-8 sm:right-8 lg:hidden">
-          <ul>
-            {links.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-[#1d2230]/10 py-4 text-[18px]"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
+          hidden && !open ? "-translate-y-full" : "translate-y-0"
+        } ${compact ? "bg-[#0a0a0b]/70 py-3 backdrop-blur-md" : "bg-transparent py-5 md:py-7"}`}
+      >
+        <div className="flex items-center justify-between px-5 md:px-8 lg:px-[6%] sm:grid sm:grid-cols-[1fr_auto_1fr]">
           <a
-            href="#hire"
-            onClick={() => setOpen(false)}
-            className="mt-5 block rounded-full bg-[#1d2230] py-3.5 text-center text-white"
+            href="#"
+            className="justify-self-start text-[26px] font-semibold leading-none tracking-tight"
           >
-            {cta}
+            {brand.logo}
           </a>
+
+          <a
+            href={nav.cta.href}
+            className="group hidden items-center gap-4 rounded-full border border-white/15 py-1.5 pl-6 pr-1.5 text-[11px] font-medium uppercase tracking-wide transition-colors hover:border-white/40 sm:flex"
+          >
+            {nav.cta.label}
+            <span className="grid size-9 place-items-center rounded-full bg-white text-[#0a0a0b] transition-transform duration-300 group-hover:rotate-45">
+              <ArrowIcon />
+            </span>
+          </a>
+
+          <button
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+            className="flex items-center gap-3 justify-self-end text-[11px] font-medium uppercase tracking-wide"
+          >
+            {open ? nav.closeLabel : nav.menuLabel}
+            <span className="grid size-9 place-items-center rounded-full bg-white text-[#0a0a0b]">
+              <GridIcon />
+            </span>
+          </button>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Menu overlay */}
+      <div
+        className={`fixed inset-0 z-40 flex flex-col justify-center bg-[#0a0a0b] px-5 transition-opacity duration-500 md:px-8 lg:px-[6%] ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-2">
+          {nav.links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="text-4xl font-light text-white/40 transition-colors hover:text-white md:text-6xl"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }

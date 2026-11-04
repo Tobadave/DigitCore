@@ -1,0 +1,46 @@
+{
+  "brand": { "logo": "DigitCore" },
+  "nav": {
+    "cta": { "label": "Book a meeting", "href": "#contact" },
+    "menuLabel": "Menu",
+    "closeLabel": "Close",
+    "links": [
+      { "label": "Home", "href": "#" },
+      { "label": "Work", "href": "#work" },
+      { "label": "Services", "href": "#services" },
+      { "label": "About", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "title": "Creating excellence through collaboration and innovation"
+  },
+  "badges": [
+    { "type": "upwork", "label": "Top Rated Plus" },
+    { "type": "clutch", "label": "Clutch top developers" },
+    { "type": "award", "label": "Award" },
+    { "type": "clutch", "label": "Clutch top designers" }
+  ],
+  "principles": [
+    {
+      "id": "innovation",
+      "title": "Innovation",
+      "description": "We explore new technologies and tools. To provide new unique and cutting edge solutions that set our clients apart in the digital landscape."
+    },
+    {
+      "id": "human-centered-design",
+      "title": "Human-Centered Design",
+      "description": "We are focusing on understanding and meeting user needs at every stage. By creating intuitive and engaging experiences, we ensure results are not only aesthetically pleasing but also highly functional and user-friendly."
+    },
+    {
+      "id": "quality",
+      "title": "Quality",
+      "description": "We are committed to excellence, adhering to the highest standards of quality and performance. Using advanced technologies and approaches, we ensure every project exceeds our clients' expectations."
+    },
+    {
+      "id": "collaboration",
+      "title": "Collaboration",
+      "description": "As a small, close-knit team, we have worked together for years, developing a deep understanding of each other's strengths and fostering strong collaboration."
+    }
+  ]
+}
