@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import data from "../constants.json";
+import Timeline from "../comp/Timeline";
 
 function Badge({ type, label }) {
   if (type === "upwork")
@@ -46,8 +47,8 @@ function Badge({ type, label }) {
 }
 
 export default function Hero() {
-  const { hero, badges, principles } = data;
-  const [active, setActive] = useState(0);
+  const { hero, badges } = data;
+  const [, setActive] = useState(0);
   const rows = useRef([]);
 
   // Scroll animation: the row crossing the middle of the viewport becomes active
@@ -78,53 +79,7 @@ export default function Hero() {
       </div>
 
       {/* Principles timeline */}
-      <ul className="mt-16 md:mt-28 lg:ml-[8.5%] xl:mt-56">
-        {principles.map((p, i) => {
-          const on = i === active;
-          const last = i === principles.length - 1;
-          return (
-            <li
-              key={p.id}
-              ref={(el) => (rows.current[i] = el)}
-              data-index={i}
-              onMouseEnter={() => setActive(i)}
-              className={`relative grid gap-3 pl-7 pt-10 lg:grid-cols-[47fr_53fr] lg:gap-0 lg:pl-0 ${
-                last ? "pb-24 xl:pb-32" : "pb-10"
-              }`}
-            >
-              {/* line to next dot + dot */}
-              <span
-                aria-hidden
-                className={`absolute left-[5px] top-[3.05rem] w-[2px] transition-colors duration-500 lg:left-[calc(47%+5px)] ${
-                  last ? "bottom-0" : "-bottom-[3.05rem]"
-                } ${on ? "bg-[#a9a4ee]" : "bg-white/15"}`}
-              />
-              <span
-                aria-hidden
-                className={`absolute left-0 top-[3.05rem] size-3 rounded-full transition-colors duration-500 lg:left-[47%] ${
-                  on ? "bg-[#c4c0ff]" : "bg-white/30"
-                }`}
-              />
-
-              <h3
-                onClick={() => setActive(i)}
-                className={`max-w-[10em] cursor-pointer text-2xl font-light leading-[1.2] transition-colors duration-500 md:text-3xl lg:pr-6 xl:text-[2.75rem] ${
-                  on ? "text-white" : "text-white/30"
-                }`}
-              >
-                {p.title}
-              </h3>
-              <p
-                className={`max-w-[30rem] pt-1 text-sm leading-relaxed transition-colors duration-500 lg:pl-8 xl:text-[15px] ${
-                  on ? "text-white" : "text-white/25"
-                }`}
-              >
-                {p.description}
-              </p>
-            </li>
-          );
-        })}
-      </ul>
+      <Timeline />
     </section>
   );
 }

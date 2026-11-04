@@ -66,8 +66,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-5 md:px-8 lg:px-[6%] sm:grid sm:grid-cols-[1fr_auto_1fr]">
           <a
             href="#"
-            className="justify-self-start text-[26px] font-semibold leading-none tracking-tight"
+            className="flex items-center gap-2 justify-self-start text-[26px] font-semibold leading-none tracking-tight"
           >
+            <img src={brand.logoImg} alt="" className="h-8 w-auto" />
             {brand.logo}
           </a>
 

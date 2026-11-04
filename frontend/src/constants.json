@@ -1,5 +1,5 @@
 {
-  "brand": { "logo": "DigitCore" },
+  "brand": { "logo": "DigitCore", "logoImg": "/logo.png" },
   "nav": {
     "cta": { "label": "Book a meeting", "href": "#contact" },
     "menuLabel": "Menu",

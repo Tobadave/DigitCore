@@ -4,3 +4,6 @@
 html {
   scroll-behavior: smooth;
 }
+:root {
+  --accent: #f00000; /* red from your logo */
+}
