@@ -80,6 +80,7 @@ const CELL = [
 export default function Service() {
   const { label, items } = data.services;
   const [headRef, headShown] = useInView();
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <section
@@ -106,7 +107,13 @@ export default function Service() {
       {/* Services grid */}
       <div className="mt-10 grid gap-x-8 gap-y-8 md:grid-cols-2 lg:mt-14 lg:grid-cols-[266fr_308fr_319fr] lg:gap-x-0 lg:gap-y-7">
         {items.map((item, i) => (
-          <Reveal key={item.id} delay={(i % 3) * 120} className={CELL[i]}>
+          <Reveal
+            key={item.id}
+            delay={(i % 3) * 120}
+            className={`${CELL[i] || ""} ${
+              i >= 3 && !showAll ? "hidden md:block" : "block"
+            }`}
+          >
             {i === 5 ? (
               <div className="relative lg:h-full">
                 {/* Notched frame */}
@@ -137,6 +144,37 @@ export default function Service() {
           </Reveal>
         ))}
       </div>
+
+      {/* Mobile View More */}
+      {items.length > 3 && (
+        <div className="mt-9 flex justify-center md:hidden">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            aria-expanded={showAll}
+            className="group inline-flex min-h-[50px] items-center justify-center gap-3 rounded-full border border-[#1d2230]/20 bg-[#faf9f7] px-7 py-3 text-sm font-semibold text-[#1d2230] transition-all duration-300 hover:border-[#1d2230] hover:bg-[#1d2230] hover:text-white active:scale-[0.98]"
+          >
+            {showAll ? "Show less" : "View all services"}
+
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              className={`h-4 w-4 transition-transform duration-300 ${
+                showAll ? "rotate-180" : "group-hover:translate-y-0.5"
+              }`}
+              aria-hidden="true"
+            >
+              <path
+                d="M4 7L10 13L16 7"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
     </section>
   );
 }
